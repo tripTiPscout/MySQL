@@ -98,8 +98,7 @@ BEGIN
     FROM `employees` 
     WHERE `salary` > 35000
     ORDER BY `first_name`, `last_name`, `employee_id`;
-    END$$
-    
+    END$$    
     
 
 #Task 2
@@ -113,7 +112,6 @@ BEGIN
 END$$
 
 
-
 #Task 3
 DELIMITER $$
 CREATE PROCEDURE usp_get_towns_starting_with(starting_text VARCHAR(50))
@@ -122,7 +120,6 @@ BEGIN
     WHERE LOWER(`name`) LIKE LOWER(CONCAT(starting_text, '%'))
     ORDER BY `name`;
 END$$
-
 
 
 #Task 4
@@ -136,7 +133,6 @@ BEGIN
     WHERE t.`name` = town_name
     ORDER BY `first_name`, `last_name`, `employee_id`;
 END$$
-
 
 
 #Task 5
@@ -154,7 +150,6 @@ BEGIN
 END$$
 
 
-
 #Task 6
 DELIMITER $$
 CREATE PROCEDURE usp_get_employees_by_salary_level (salary_level VARCHAR(10))
@@ -163,7 +158,6 @@ BEGIN
     WHERE ufn_get_salary_level(`salary`) = salary_level
     ORDER BY `first_name` DESC, `last_name` DESC;
 END$$
-
 
 
 #Task 7
@@ -176,9 +170,6 @@ BEGIN
 END$$
 
 
-
-#PART II – Queries for Bank Database
-
 #Task 8
 DELIMITER $$
 CREATE PROCEDURE usp_get_holders_full_name()
@@ -187,7 +178,6 @@ BEGIN
     FROM `account_holders`
     ORDER BY `full_name`, `id`;
 END$$
-
 
 
 #Task 9
@@ -204,7 +194,6 @@ BEGIN
 END$$
 
 
-
 #Task 10
 DELIMITER $$
 CREATE FUNCTION ufn_calculate_future_value (`sum` DECIMAL (19, 4), yearly_rate DOUBLE, years INT)
@@ -215,7 +204,6 @@ BEGIN
     SET future_sum := `sum` * POW(1 + yearly_rate, years);
     RETURN future_sum;
 END$$
-
 
 
 #Task 11
@@ -233,7 +221,6 @@ BEGIN
 END$$
 
 
-
 #Task 12
 DELIMITER $$
 CREATE PROCEDURE usp_deposit_money(account_id INT, money_amount DECIMAL(19, 4))
@@ -244,7 +231,6 @@ BEGIN
     WHERE `id` = account_id;
     END IF;
 END$$
-
 
 
 #Task 13
@@ -259,7 +245,6 @@ BEGIN
     WHERE `id` = account_id;
     END IF;
 END$$
-
 
 
 #Task 14
@@ -284,7 +269,6 @@ BEGIN
 END$$
 
 
-
 #Task 15
 CREATE TABLE `logs` (
 	`log_id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -301,7 +285,6 @@ BEGIN
 	INSERT INTO `logs` (`account_id`, `old_sum`, `new_sum`)
     VALUES (OLD.`id`, OLD.`balance`, NEW.`balance`);
 END$$
-
 
 
 #Task 16
@@ -324,7 +307,3 @@ BEGIN
             CONCAT('On ', NOW(), ' your balance was changed from ', NEW.`old_sum`, ' to ', NEW.`new_sum`, '.')
 	);
 END$$
-
-
-
-

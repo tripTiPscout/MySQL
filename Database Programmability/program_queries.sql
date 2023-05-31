@@ -4,7 +4,7 @@ CREATE FUNCTION `ufn_count_employees_by_town`(`town_name` VARCHAR(50))
 RETURNS INT 
 DETERMINISTIC
 BEGIN 
-	DECLARE `id_for_town` INT;
+    DECLARE `id_for_town` INT;
     DECLARE `count_by_town` INT;
     
     SET `id_for_town` := (SELECT `town_id` FROM `towns` WHERE `name` = `town_name`);
@@ -17,8 +17,6 @@ BEGIN
 			);
 	RETURN `count_by_town`;
 END$$
-
-
 
 
 #Task 2
@@ -36,7 +34,6 @@ WHERE
         WHERE
             name = department_name);
 END$$
-
 
 
 #Task 3
@@ -57,10 +54,7 @@ BEGIN
     END IF;
     
 END$$
-
 CALL `usp_raise_salary_by_id`(17);
-
-
 
 
 #Task 4

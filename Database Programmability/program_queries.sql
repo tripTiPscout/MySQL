@@ -88,7 +88,7 @@ VALUES(
        OLD.`salary`);
 END$$
 
-
+#Exercise
 
 #Task 1
 DELIMITER $$

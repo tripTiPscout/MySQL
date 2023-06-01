@@ -89,6 +89,7 @@ VALUES(
 END$$
 
 #Exercise
+#softuni database
 
 #Task 1
 DELIMITER $$
@@ -169,7 +170,7 @@ BEGIN
 	RETURN word REGEXP (CONCAT('^[', set_of_letters, ']+$'));
 END$$
 
-
+#bank database
 #Task 8
 DELIMITER $$
 CREATE PROCEDURE usp_get_holders_full_name()

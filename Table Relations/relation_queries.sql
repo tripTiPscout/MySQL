@@ -13,7 +13,6 @@ CREATE TABLE `peaks` (
         REFERENCES `mountains` (`id`)
 );
 
-
 #Task 2
 SELECT 
     v.`driver_id`,
@@ -23,7 +22,6 @@ FROM
     `vehicles` AS v
         JOIN
     `campers` AS c ON v.`driver_id` = c.`id`;
-
 
 #Task 3 
 SELECT 
@@ -35,8 +33,7 @@ FROM
     routes AS r
         JOIN
     campers AS c ON r.leader_id = c.id;
-    
-    
+
 #Task 4
 CREATE TABLE mountains (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -50,14 +47,4 @@ CREATE TABLE mountains (
         REFERENCES mountains (id)
         ON DELETE CASCADE
 );
-
-
-
-
-
-
-
-
-
-
 
